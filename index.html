@@ -57,7 +57,7 @@
     <section class="hiro-section">
       <div class="container">
         <h1 class="hiro-title">Ефективні рішення для вашого бізнесу</h1>
-        <button type="button" class="hiro-button">Замовити послугу</button>
+        <button data-modal-open type="button" class="hiro-button">Замовити послугу</button>
       </div>
     </section>
 
@@ -121,13 +121,22 @@
         <h2 class="caption">Чим ми займаємося</h2>
         <ul class="list">
           <li class="list-item">
-            <img class="img" src="./images/page1.jpg" alt="Розробка стркутури пробукту" width="370" />
+            <div class="working-position"> <img class="img" src="./images/page1.jpg" alt="Розробка стркутури пробукту"
+                width="370" />
+              <h3 class="working-title">Десктопні додатки</h3>
+            </div>
           </li>
           <li class="list-item">
-            <img class="img" src="./images/page2.jpg" alt="Розробка мобільних додатків" width="370" />
+            <div class="working-position"> <img class="img" src="./images/page2.jpg" alt="Розробка мобільних додатків"
+                width="370" />
+              <h3 class="working-title">Мобільні додатки</h3>
+            </div>
           </li>
           <li class="list-item">
-            <img class="img" src="./images/page3.jpg" alt="Дизайн додатків" width="370" />
+            <div class="working-position"> <img class="img" src="./images/page3.jpg" alt="Дизайн додатків"
+                width="370" />
+              <h3 class="working-title">Дизайнерські рішення</h3>
+            </div>
           </li>
         </ul>
       </div>
@@ -396,6 +405,18 @@
       </div>
     </div>
   </footer>
+  <!-- модальне вікно -->
+  <div data-modal class="backdrop is-hidden">
+    <div class="modal">
+      <button data-modal-close type="button" class="modal-button">
+        <svg width="18px" height="18px" class="modal-icon">
+          <use href="./images/icons.svg#icon-close">
+          </use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>

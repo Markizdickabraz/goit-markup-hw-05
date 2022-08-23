@@ -12,6 +12,11 @@
   --portfolio-border-color: #eeeeee;
   --header-border-color: #ececec;
   --icon-color: #aeb1b8;
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --color-working-bgc: rgba(47, 48, 58, 0.8);
+  --color-bg-overlay: rgba(33, 150, 243, 0.9);
+  --color-backdrop-modal: rgba(0, 0, 0, 0.2);
+  --border-modal-icon: rgba(0, 0, 0, 0.1);
 }
 /* боді */
 body {
@@ -109,6 +114,7 @@ ul {
   fill: var(--icon-color);
   /* margin-right: 50px; */
   /* padding: 32px; */
+  transition: color 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier);
 }
 .contact-link:hover,
 .contact-link:focus {
@@ -125,6 +131,7 @@ ul {
   display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms var(--cubic-bezier);
 }
 .navigation-list .navigation-link:hover,
 .navigation-list .navigation-link:focus {
@@ -155,6 +162,39 @@ ul {
 .list-button .list-item {
   margin-right: 8px;
 }
+/* overlay Портфоліо */
+.overlay {
+  position: relative;
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: var(--accent-color); */
+  /* transform: translateY(-100%); */
+  overflow: hidden;
+}
+.text-overlay {
+  /* overflow: hidden; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-overlay);
+  transform: translateY(101%);
+  /* width: 100%; */
+  /* text-align: center; */
+  padding-left: 24px;
+  padding-top: 63px;
+  padding-right: 24px;
+  padding-bottom: 63px;
+  color: var(--white-color);
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  transition: transform 250ms var(--cubic-bezier);
+}
+/* списки та посилання Портфоліо */
 .list-portfolio {
   margin-top: 56px;
   display: flex;
@@ -164,6 +204,16 @@ ul {
   display: block;
   text-decoration: none;
   color: inherit;
+}
+.portfolio-link:hover,
+.portfolio-link:focus,
+.portfolio-link:hover .text-overlay,
+.portfolio-link:focus .text-overlay {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  overflow: visible;
+  transform: translateY(0);
+  /* outline: none; */
 }
 .portfolio-link .text {
   font-size: 16px;
@@ -190,6 +240,9 @@ ul {
   margin-right: 50px;
 }
 /*ітеми портфоліо */
+.item-portfolio {
+  transition: box-shadow 250ms var(--cubic-bezier);
+}
 .item-portfolio .title {
   font-weight: 700;
   font-size: 18px;
@@ -204,19 +257,9 @@ ul {
   margin-right: 0px;
   display: block;
 }
-.item-portfolio:hover,
-.item-portfolio:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-/* .item-portfolio .title { пописав для бордер-портфоліо
-  padding-top: 20px;
-  padding-left: 24px;
-} */
+
 .item-portfolio .text {
   margin-top: 4px;
-  /* padding-left: 24px; пописав для бордер-портфоліо
-   padding-bottom: 20px; пописав для бордер-портфоліо */
 }
 /* бордер портфоліо */
 .border-portfolio {
@@ -247,6 +290,9 @@ ul {
   padding-right: 22px;
   padding-bottom: 6px;
   border-radius: 4px;
+  transition: color 250ms var(--cubic-bezier),
+    background-color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
 }
 .button:hover,
 .button:focus {
@@ -306,6 +352,7 @@ ul {
   padding-right: 32px;
   padding-bottom: 10px;
   border-radius: 4px;
+  transition: background-color 250ms var(--cubic-bezier);
 }
 .hiro-button:hover,
 .hiro-button:focus {
@@ -335,6 +382,26 @@ ul {
 .advantage .list-item {
   width: 25%;
 }
+/* секція наша робота */
+.working-position {
+  position: relative;
+}
+.working-title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background-color: var(--color-working-bgc);
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
 .working .list {
   display: flex;
   align-items: flex-end;
@@ -359,6 +426,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms var(--cubic-bezier),
+    fill 250ms var(--cubic-bezier);
 }
 /* .team-icon-svg {
   fill: currentColor;
@@ -447,6 +516,7 @@ ul {
   padding-right: 32px;
   padding-top: 16px;
   padding-bottom: 16px; */
+  transition: border 250ms var(--cubic-bezier), fill 250ms var(--cubic-bezier);
 }
 .clients-icon-link:hover,
 .clients-icon-link:focus {
@@ -491,6 +561,7 @@ ul {
   /* padding: 12px; */
   fill: var(--white-color);
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--cubic-bezier);
 }
 .footer-icon-link:hover,
 .footer-icon-link:focus {
@@ -516,6 +587,7 @@ ul {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  transition: color 250ms var(--cubic-bezier);
 }
 .footer-list .list-item {
   margin-right: 0;
@@ -526,11 +598,12 @@ ul {
 }
 .footer-link .footer-span {
   color: var(--white-color);
+  transition: color 250ms var(--cubic-bezier);
 }
 .footer-link:hover,
 .footer-link:focus,
-.footer-link .footer-span:focus,
-.footer-link .footer-span:hover {
+.footer-link:focus .footer-span,
+.footer-link:hover .footer-span {
   color: var(--accent-color);
 }
 .footer-logo {
@@ -556,4 +629,48 @@ ul {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+/* налаштування модального вікна */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-backdrop-modal);
+  opacity: 1;
+  transition: opacity 250ms var(--cubic-bezier);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-color);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--cubic-bezier);
+}
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+  fill: var(--header-logo-color);
+  background-color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-modal-icon);
+  border-radius: 50%;
+  cursor: pointer;
 }
