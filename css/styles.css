@@ -67,6 +67,20 @@ ul {
 .accent {
   color: var(--accent-color);
 }
+.accent-line {
+  position: relative;
+}
+.accent-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  display: block;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
 .header-content {
   display: flex;
   align-items: center;
